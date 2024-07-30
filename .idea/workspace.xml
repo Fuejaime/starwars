@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d88ca930-66d9-4af7-83ba-55d37c4591f8" name="Changes" comment="git commit -m &quot;first commit&quot;" />
+    <list default="true" id="d88ca930-66d9-4af7-83ba-55d37c4591f8" name="Changes" comment="git commit -m &quot;first commit&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,30 +15,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "assignee": "Fuejaime"
+      &quot;assignee&quot;: &quot;Fuejaime&quot;
     },
     {
-      "assignee": "Fuejaime",
-      "author": "Fuejaime"
+      &quot;assignee&quot;: &quot;Fuejaime&quot;,
+      &quot;author&quot;: &quot;Fuejaime&quot;
     },
     {
-      "state": "CLOSED",
-      "assignee": "Fuejaime",
-      "author": "Fuejaime"
+      &quot;state&quot;: &quot;CLOSED&quot;,
+      &quot;assignee&quot;: &quot;Fuejaime&quot;,
+      &quot;author&quot;: &quot;Fuejaime&quot;
     }
   ],
-  "lastFilter": {
-    "state": "CLOSED",
-    "assignee": "Fuejaime",
-    "author": "Fuejaime"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;CLOSED&quot;,
+    &quot;assignee&quot;: &quot;Fuejaime&quot;,
+    &quot;author&quot;: &quot;Fuejaime&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "git@github.com:/Fuejaime/starwars.git",
+    "url": "https://github.com/Fuejaime/starwars.git",
     "accountId": "9831bfe0-e4cb-481c-b696-0aa8e3cc36ff"
   }
 }]]></component>
@@ -47,9 +49,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2jy1FLLRmMqkUnfBUIS21pCKpzG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -61,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jaimegomez/Documents/Codigo/starwars",
+    "last_opened_file_path": "/Users/jaimegomez/Documents/Codigo/StarWars/starwars",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1722344397771</updated>
       <workItem from="1722344399378" duration="885000" />
+      <workItem from="1722346626520" duration="47000" />
     </task>
     <task id="LOCAL-00001" summary="git commit -m &quot;first commit&quot;">
       <option name="closed" value="true" />
@@ -110,6 +113,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git commit -m &quot;first commit&quot;" />
