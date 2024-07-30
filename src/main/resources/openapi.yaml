@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Star Wars API
+  description: API para obtener información sobre personajes de Star Wars.
+  version: 1.0.0
+paths:
+  /swapi-proxy/person-info:
+    get:
+      summary: Obtener información del personaje de Star Wars
+      description: Devuelve información detallada sobre un personaje de Star Wars basado en el nombre proporcionado.
+      parameters:
+        - name: name
+          in: query
+          description: Nombre del personaje de Star Wars.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Información del personaje encontrada con éxito.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Luke Skywalker
+                  birth_year:
+                    type: string
+                    example: 19BBY
+                  gender:
+                    type: string
+                    example: male
+                  planet_name:
+                    type: string
+                    example: Tatooine
+                  fastest_vehicle_driven:
+                    type: string
+                    example: X-wing
+                  films:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: A New Hope
+                        release_date:
+                          type: string
+                          format: date
+                          example: 1977-05-25
+        '404':
+          description: Personaje no encontrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Character not found
