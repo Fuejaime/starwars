@@ -1,5 +1,6 @@
 package com.example.starwars.infrastructure.service;
 
+import com.example.starwars.contract.rest.controller.PersonNotFoundException;
 import com.example.starwars.domain.Repository.ApiService;
 import com.example.starwars.infrastructure.entity.PersonInformation;
 import com.example.starwars.infrastructure.entity.PersonInformationResponse;
@@ -22,7 +23,7 @@ public class DataFetcherService {
             PersonInformationResponse response = apiService.fetchObject(url, PersonInformationResponse.class);
 
             if (response == null || response.getResults().isEmpty()) {
-                throw new RuntimeException("Person not found");
+                throw new PersonNotFoundException("Person not found");
             }
 
             PersonInformation personInfo = response.getResults().stream()
@@ -35,7 +36,7 @@ public class DataFetcherService {
             }
 
             if (response.getNext() == null) {
-                throw new RuntimeException("Person not found");
+                throw new PersonNotFoundException("Person not found");
             }
             page++;
         }
