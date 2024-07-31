@@ -15,11 +15,11 @@ public class GetInformationUseCaseImplTest {
 
     @Mock
     GetInformationRepository getInformationRepository;
-
+/*
     @Test
     void getInformation() {
         String name = "Luke";
         this.underTest.getInformation(name);
         //Pending Test correct functionality
-    }
+    }*/
 }

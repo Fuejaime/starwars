@@ -1,4 +1,4 @@
-package com.example.starwars.infrastructure.adapter.Model;
+package com.example.starwars.infrastructure.model;
 
 import lombok.Data;
 

@@ -13,7 +13,8 @@ public class GetInformationUseCaseImpl implements GetInformationUseCase {
     private final GetInformationRepository getInformationRepository;
 
     @Override
-    public void getInformation(String name) {
-        final Information information = getInformationRepository.getInformation(name);
+    public Information getInformation(String name) {
+
+        return getInformationRepository.getInformation(name);
     }
 }

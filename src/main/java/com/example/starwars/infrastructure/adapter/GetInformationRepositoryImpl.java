@@ -1,16 +1,78 @@
 package com.example.starwars.infrastructure.adapter;
 
+import com.example.starwars.domain.Model.FilmSummary;
 import com.example.starwars.domain.Model.Information;
 import com.example.starwars.domain.Repository.GetInformationRepository;
+import com.example.starwars.infrastructure.model.PersonInformation;
+import com.example.starwars.infrastructure.model.PlanetInformation;
+import com.example.starwars.infrastructure.model.Starship;
+import com.example.starwars.infrastructure.model.Vehicle;
+import com.example.starwars.infrastructure.service.DataFetcherService;
+import com.example.starwars.infrastructure.service.FilmSummaryService;
+import com.example.starwars.infrastructure.service.SpeedCalculatorService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @AllArgsConstructor
 public class GetInformationRepositoryImpl implements GetInformationRepository {
 
-  @Override
-  public Information getInformation(String name) {
-        return Information.builder().name(name).build();
-  }
+    private final DataFetcherService dataFetcherService;
+    private final SpeedCalculatorService speedCalculatorService;
+    private final FilmSummaryService filmSummaryService;
+
+    @Override
+    public Information getInformation(String name) {
+        PersonInformation personInfo = dataFetcherService.fetchPersonInformation(name);
+        String planetName = fetchPlanetName(personInfo.getHomeworld());
+        String fastestItem = findFastestItem(personInfo.getVehicles(), personInfo.getStarships());
+        List<FilmSummary> films = filmSummaryService.getFilmSummaries(personInfo.getFilms());
+
+        return Information.builder()
+                .name(personInfo.getName())
+                .birth_year(personInfo.getBirth_year())
+                .gender(personInfo.getGender())
+                .planet_name(planetName)
+                .fastest_vehicle_driven(fastestItem)
+                .films(films)
+                .build();
+    }
+
+    private String fetchPlanetName(String planetUrl) {
+        PlanetInformation planetInfo = dataFetcherService.fetchPlanet(planetUrl);
+        return planetInfo != null ? planetInfo.getName() : "Unknown";
+    }
+
+    private String findFastestItem(List<String> vehicleUrls, List<String> starshipUrls) {
+        Integer maxVehicleSpeed = speedCalculatorService.getMaxSpeed(
+                vehicleUrls, Vehicle.class, vehicle -> parseSpeed(vehicle.getMax_atmosphering_speed())
+        );
+        Integer maxStarshipSpeed = speedCalculatorService.getMaxSpeed(
+                starshipUrls, Starship.class, starship -> parseSpeed(starship.getMax_atmosphering_speed())
+        );
+
+        String fastestVehicleName = speedCalculatorService.getFastestName(
+                vehicleUrls, Vehicle.class, maxVehicleSpeed,
+                vehicle -> parseSpeed(vehicle.getMax_atmosphering_speed()), Vehicle::getName
+        );
+        String fastestStarshipName = speedCalculatorService.getFastestName(
+                starshipUrls, Starship.class, maxStarshipSpeed,
+                starship -> parseSpeed(starship.getMax_atmosphering_speed()), Starship::getName
+        );
+
+        return maxVehicleSpeed > maxStarshipSpeed ? fastestVehicleName : fastestStarshipName;
+    }
+
+    private Integer parseSpeed(String speed) {
+        if (speed == null || speed.trim().isEmpty()) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(speed);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
 }
