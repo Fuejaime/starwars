@@ -1,10 +1,12 @@
-package com.example.starwars.infrastructure.model;
+package com.example.starwars.infrastructure.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
 public class Film {
     private String title;
     private int episodeId;  // Cambiado a int para seguir el tipo del JSON

@@ -2,10 +2,10 @@ package com.example.starwars.infrastructure.adapter;
 
 import com.example.starwars.domain.Model.FilmSummary;
 import com.example.starwars.domain.Model.Information;
-import com.example.starwars.infrastructure.model.PersonInformation;
-import com.example.starwars.infrastructure.model.PlanetInformation;
-import com.example.starwars.infrastructure.model.Starship;
-import com.example.starwars.infrastructure.model.Vehicle;
+import com.example.starwars.infrastructure.entity.PersonInformation;
+import com.example.starwars.infrastructure.entity.PlanetInformation;
+import com.example.starwars.infrastructure.entity.Starship;
+import com.example.starwars.infrastructure.entity.Vehicle;
 import com.example.starwars.infrastructure.service.DataFetcherService;
 import com.example.starwars.infrastructure.service.FilmSummaryService;
 import com.example.starwars.infrastructure.service.SpeedCalculatorService;
@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;

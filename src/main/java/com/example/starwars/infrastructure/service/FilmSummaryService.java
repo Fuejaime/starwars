@@ -2,7 +2,7 @@ package com.example.starwars.infrastructure.service;
 
 import com.example.starwars.domain.Model.FilmSummary;
 import com.example.starwars.domain.Repository.ApiService;
-import com.example.starwars.infrastructure.model.Film;
+import com.example.starwars.infrastructure.entity.Film;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

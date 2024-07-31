@@ -1,9 +1,9 @@
 package com.example.starwars.infrastructure.service;
 
 import com.example.starwars.domain.Repository.ApiService;
-import com.example.starwars.infrastructure.model.PersonInformation;
-import com.example.starwars.infrastructure.model.PersonInformationResponse;
-import com.example.starwars.infrastructure.model.PlanetInformation;
+import com.example.starwars.infrastructure.entity.PersonInformation;
+import com.example.starwars.infrastructure.entity.PersonInformationResponse;
+import com.example.starwars.infrastructure.entity.PlanetInformation;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
