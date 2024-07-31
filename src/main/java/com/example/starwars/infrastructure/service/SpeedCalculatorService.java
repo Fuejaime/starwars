@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
 @Component
 public class SpeedCalculatorService {
@@ -15,23 +16,25 @@ public class SpeedCalculatorService {
         this.apiService = apiService;
     }
 
-    public <T> Integer getMaxSpeed(List<String> urls, Class<T> type, SpeedExtractor<T> speedExtractor) {
+    public <T> Integer getMaxSpeed(List<String> urls, Class<T> type, Function<T, Integer> speedExtractor) {
         return urls.stream()
                 .map(url -> apiService.fetchObject(url, type))
                 .filter(Objects::nonNull)
-                .map(speedExtractor::extractSpeed)
+                .map(speedExtractor)
                 .max(Comparator.naturalOrder())
                 .orElse(0);
     }
 
-    public <T> String getFastestName(List<String> urls, Class<T> type, Integer maxSpeed, SpeedExtractor<T> speedExtractor, NameExtractor<T> nameExtractor) {
+    public <T> String getFastestName(List<String> urls, Class<T> type, Integer maxSpeed,
+                                     Function<T, Integer> speedExtractor, Function<T, String> nameExtractor) {
         return urls.stream()
                 .map(url -> apiService.fetchObject(url, type))
-                .filter(obj -> obj != null && speedExtractor.extractSpeed(obj).equals(maxSpeed))
-                .map(nameExtractor::extractName)
+                .filter(obj -> obj != null && speedExtractor.apply(obj).equals(maxSpeed))
+                .map(nameExtractor)
                 .findFirst()
                 .orElse("None");
     }
+
 
     @FunctionalInterface
     public interface SpeedExtractor<T> {

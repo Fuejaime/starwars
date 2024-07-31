@@ -1,8 +1,10 @@
 package com.example.starwars.infrastructure.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class PlanetInformation {
         private String name;
         private String climate;
