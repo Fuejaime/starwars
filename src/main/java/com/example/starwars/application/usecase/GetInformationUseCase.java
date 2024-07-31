@@ -1,6 +1,8 @@
 package com.example.starwars.application.usecase;
 
+import com.example.starwars.domain.Model.Information;
+
 public interface GetInformationUseCase {
-  void getInformation(String name);
+  Information getInformation(String name);
 
 }
