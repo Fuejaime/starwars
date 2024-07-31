@@ -1,6 +1,7 @@
 package com.example.starwars.contract.rest.controller;
 
 import com.example.starwars.application.usecase.GetInformationUseCase;
+import com.example.starwars.domain.Model.Information;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,7 @@ public class InformationController {
 
     private final GetInformationUseCase getInformationUseCase;
     @GetMapping
-    public String getInfo(@RequestParam ("name") String name) {
-        this.getInformationUseCase.getInformation(name);
-        return "Info" + name;
+    public Information getInfo(@RequestParam ("name") String name) {
+        return getInformationUseCase.getInformation(name);
     }
 }

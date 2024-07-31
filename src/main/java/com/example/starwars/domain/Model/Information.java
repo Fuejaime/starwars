@@ -15,5 +15,5 @@ public class Information {
     private String gender;
     private String planet_name;
     private String fastest_vehicle_driven;
-    private List<Film> films;
+    private List<FilmSummary> films;
 }

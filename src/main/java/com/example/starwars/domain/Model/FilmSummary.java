@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 @AllArgsConstructor
-public class Film {
+public class FilmSummary {
     private String name;
-    private LocalDate releaseDate;
+    private LocalDate release_date;
 }

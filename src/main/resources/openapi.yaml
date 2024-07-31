@@ -50,6 +50,17 @@ paths:
                           type: string
                           format: date
                           example: 1977-05-25
+              examples:
+                application/json:
+                  value:
+                    name: Luke Skywalker
+                    birth_year: 19BBY
+                    gender: male
+                    planet_name: Tatooine
+                    fastest_vehicle_driven: X-wing
+                    films:
+                      - name: A New Hope
+                        release_date: 1977-05-25
         '404':
           description: Personaje no encontrado.
           content:
@@ -60,3 +71,7 @@ paths:
                   message:
                     type: string
                     example: Character not found
+              examples:
+                application/json:
+                  value:
+                    message: Character not found

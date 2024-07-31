@@ -21,7 +21,7 @@ public class InformationControllerTest {
     @Test
     void getInfo() {
         String name = "Luke";
-        String result = this.underTest.getInfo(name);
+        String result = String.valueOf(this.underTest.getInfo(name));
         assertEquals("Info" + name, result);
     }
 }
