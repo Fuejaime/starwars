@@ -5,17 +5,20 @@ import com.example.starwars.domain.Repository.ApiService;
 import com.example.starwars.infrastructure.entity.PersonInformation;
 import com.example.starwars.infrastructure.entity.PersonInformationResponse;
 import com.example.starwars.infrastructure.entity.PlanetInformation;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DataFetcherService {
+
     private final ApiService apiService;
 
+    @Value("${api.url}")
+    private String apiUrl;
 
     public PersonInformation fetchPersonInformation(String name) {
-        String apiUrl = "https://swapi.trileuco.com/api/people/?page=";
         int page = 1;
 
         while (true) {
@@ -38,11 +41,12 @@ public class DataFetcherService {
             if (response.getNext() == null) {
                 throw new PersonNotFoundException("Person not found");
             }
+
             page++;
         }
     }
-
     public PlanetInformation fetchPlanet(String planetUrl) {
         return apiService.fetchObject(planetUrl, PlanetInformation.class);
     }
+
 }
