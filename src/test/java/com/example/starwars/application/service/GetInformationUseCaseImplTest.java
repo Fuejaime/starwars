@@ -1,11 +1,19 @@
 package com.example.starwars.application.service;
 
+import com.example.starwars.domain.Model.Information;
 import com.example.starwars.domain.Repository.GetInformationRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class GetInformationUseCaseImplTest {
@@ -15,11 +23,34 @@ public class GetInformationUseCaseImplTest {
 
     @Mock
     GetInformationRepository getInformationRepository;
-/*
+
     @Test
     void getInformation() {
-        String name = "Luke";
-        this.underTest.getInformation(name);
-        //Pending Test correct functionality
-    }*/
+        //Arrange
+        String name = "Luke Skywalker";
+        Information expectedInformation = Information.builder()
+                .name("Luke Skywalker")
+                .birth_year("19BBY")
+                .gender("male")
+                .planet_name("Tatooine")
+                .fastest_vehicle_driven("X-34 landspeeder")
+                .films(List.of())
+                .build();
+        when(getInformationRepository.getInformation(name)).thenReturn(expectedInformation);
+
+        //Act
+        Information result = underTest.getInformation(name);
+
+        //Assert
+        assertNotNull(result);
+        assertEquals(expectedInformation.getName(), result.getName());
+        assertEquals(expectedInformation.getBirth_year(), result.getBirth_year());
+        assertEquals(expectedInformation.getGender(), result.getGender());
+        assertEquals(expectedInformation.getPlanet_name(), result.getPlanet_name());
+        assertEquals(expectedInformation.getFastest_vehicle_driven(), result.getFastest_vehicle_driven());
+        assertEquals(expectedInformation.getFilms(), result.getFilms());
+
+        verify(getInformationRepository).getInformation(name);
+
+    }
 }
