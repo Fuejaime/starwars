@@ -1,5 +1,6 @@
 package com.example.starwars.infrastructure.service;
 
+import com.example.starwars.contract.rest.controller.PersonNotFoundException;
 import com.example.starwars.domain.Repository.ApiService;
 import com.example.starwars.infrastructure.entity.PersonInformation;
 import com.example.starwars.infrastructure.entity.PersonInformationResponse;
@@ -9,12 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class DataFetcherServiceTest {
@@ -25,6 +27,9 @@ public class DataFetcherServiceTest {
     @InjectMocks
     private DataFetcherService dataFetcherService;
 
+    @Value("${api.url}")
+    private String apiUrl;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -33,24 +38,22 @@ public class DataFetcherServiceTest {
     @Test
     void testFetchPersonInformationFound() {
         // Arrange
-        String personName = "Luke Skywalker";
-        PersonInformation personInformation = PersonInformation.builder()
-                .name(personName)
-                .build();
-
         PersonInformationResponse response = PersonInformationResponse.builder()
-                .results(List.of(personInformation))
+                .results(List.of(PersonInformation.builder()
+                        .name("Luke Skywalker")
+                        .birth_year("19BBY")
+                        .build()))
                 .build();
 
-        when(apiService.fetchObject("https://swapi.trileuco.com/api/people/?page=1", PersonInformationResponse.class))
-                .thenReturn(response);
+        when(apiService.fetchObject(apiUrl + 1, PersonInformationResponse.class)).thenReturn(response);
 
         // Act
-        PersonInformation result = dataFetcherService.fetchPersonInformation(personName);
+        PersonInformation result = dataFetcherService.fetchPersonInformation("Luke Skywalker");
 
         // Assert
-        assertThat(result).isNotNull();
-        assertThat(result.getName()).isEqualTo(personName);
+        assertNotNull(result);
+        assertEquals("Luke Skywalker", result.getName());
+        assertEquals("19BBY", result.getBirth_year());
     }
 
     @Test
@@ -66,7 +69,7 @@ public class DataFetcherServiceTest {
                 .thenReturn(response);
 
         // Act & Assert
-        assertThrows(RuntimeException.class, () -> dataFetcherService.fetchPersonInformation(personName));
+        assertThrows(PersonNotFoundException.class, () -> dataFetcherService.fetchPersonInformation(personName));
     }
 
     @Test
