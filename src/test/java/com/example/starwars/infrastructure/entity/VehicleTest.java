@@ -30,7 +30,7 @@ public class VehicleTest {
                 .manufacturer(manufacturer)
                 .costInCredits(costInCredits)
                 .length(length)
-                .max_atmosphering_speed(maxAtmospheringSpeed)
+                .maxAtmospheringSpeed(maxAtmospheringSpeed)
                 .crew(crew)
                 .passengers(passengers)
                 .cargoCapacity(cargoCapacity)
@@ -48,7 +48,7 @@ public class VehicleTest {
         assertThat(vehicle.getManufacturer()).isEqualTo(manufacturer);
         assertThat(vehicle.getCostInCredits()).isEqualTo(costInCredits);
         assertThat(vehicle.getLength()).isEqualTo(length);
-        assertThat(vehicle.getMax_atmosphering_speed()).isEqualTo(maxAtmospheringSpeed);
+        assertThat(vehicle.getMaxAtmospheringSpeed()).isEqualTo(maxAtmospheringSpeed);
         assertThat(vehicle.getCrew()).isEqualTo(crew);
         assertThat(vehicle.getPassengers()).isEqualTo(passengers);
         assertThat(vehicle.getCargoCapacity()).isEqualTo(cargoCapacity);
@@ -68,7 +68,7 @@ public class VehicleTest {
                 .manufacturer("Speeder Co.")
                 .costInCredits("7500")
                 .length("3.4")
-                .max_atmosphering_speed("250")
+                .maxAtmospheringSpeed("250")
                 .crew("1")
                 .passengers("0")
                 .cargoCapacity("10")
