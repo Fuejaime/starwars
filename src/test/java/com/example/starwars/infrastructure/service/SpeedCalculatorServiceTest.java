@@ -29,9 +29,9 @@ class SpeedCalculatorServiceTest {
     @Test
     void testGetMaxSpeed() {
         // Arrange
-        Vehicle vehicle1 = Vehicle.builder().name("Speeder").max_atmosphering_speed("120").build();
-        Vehicle vehicle2 = Vehicle.builder().name("Starship").max_atmosphering_speed("500").build();
-        Vehicle vehicle3 = Vehicle.builder().name("Podracer").max_atmosphering_speed("800").build();
+        Vehicle vehicle1 = Vehicle.builder().name("Speeder").maxAtmospheringSpeed("120").build();
+        Vehicle vehicle2 = Vehicle.builder().name("Starship").maxAtmospheringSpeed("500").build();
+        Vehicle vehicle3 = Vehicle.builder().name("Podracer").maxAtmospheringSpeed("800").build();
 
         List<String> urls = Arrays.asList("url1", "url2", "url3");
 
@@ -39,7 +39,7 @@ class SpeedCalculatorServiceTest {
         when(apiService.fetchObject("url2", Vehicle.class)).thenReturn(vehicle2);
         when(apiService.fetchObject("url3", Vehicle.class)).thenReturn(vehicle3);
 
-        Function<Vehicle, Integer> speedExtractor = vehicle -> Integer.parseInt(vehicle.getMax_atmosphering_speed());
+        Function<Vehicle, Integer> speedExtractor = vehicle -> Integer.parseInt(vehicle.getMaxAtmospheringSpeed());
 
         // Act
         Integer maxSpeed = speedCalculatorService.getMaxSpeed(urls, Vehicle.class, speedExtractor);
@@ -51,9 +51,9 @@ class SpeedCalculatorServiceTest {
     @Test
     void testGetFastestName() {
         // Arrange
-        Vehicle vehicle1 = Vehicle.builder().name("Speeder").max_atmosphering_speed("120").build();
-        Vehicle vehicle2 = Vehicle.builder().name("Starship").max_atmosphering_speed("500").build();
-        Vehicle vehicle3 = Vehicle.builder().name("Racer").max_atmosphering_speed("800").build();
+        Vehicle vehicle1 = Vehicle.builder().name("Speeder").maxAtmospheringSpeed("120").build();
+        Vehicle vehicle2 = Vehicle.builder().name("Starship").maxAtmospheringSpeed("500").build();
+        Vehicle vehicle3 = Vehicle.builder().name("Racer").maxAtmospheringSpeed("800").build();
 
         List<String> urls = Arrays.asList("url1", "url2", "url3");
 
@@ -61,7 +61,7 @@ class SpeedCalculatorServiceTest {
         when(apiService.fetchObject("url2", Vehicle.class)).thenReturn(vehicle2);
         when(apiService.fetchObject("url3", Vehicle.class)).thenReturn(vehicle3);
 
-        Function<Vehicle, Integer> speedExtractor = vehicle -> Integer.parseInt(vehicle.getMax_atmosphering_speed());
+        Function<Vehicle, Integer> speedExtractor = vehicle -> Integer.parseInt(vehicle.getMaxAtmospheringSpeed());
         Function<Vehicle, String> nameExtractor = Vehicle::getName;
 
         // Act
