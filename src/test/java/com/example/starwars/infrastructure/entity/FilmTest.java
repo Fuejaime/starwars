@@ -17,7 +17,7 @@ class FilmTest {
                 .openingCrawl("It is a period of civil war...")
                 .director("George Lucas")
                 .producer("Gary Kurtz")
-                .release_date("1977-05-25")
+                .releaseDate("1977-05-25")
                 .characters(Arrays.asList("url1", "url2"))
                 .planets(Arrays.asList("url3", "url4"))
                 .starships(Arrays.asList("url5", "url6"))
@@ -29,20 +29,20 @@ class FilmTest {
                 .build();
 
         // Act & Assert
-        assertEquals("A New Hope", film.getTitle());
-        assertEquals(4, film.getEpisodeId());
-        assertEquals("It is a period of civil war...", film.getOpeningCrawl());
-        assertEquals("George Lucas", film.getDirector());
-        assertEquals("Gary Kurtz", film.getProducer());
-        assertEquals("1977-05-25", film.getRelease_date());
-        assertEquals(Arrays.asList("url1", "url2"), film.getCharacters());
-        assertEquals(Arrays.asList("url3", "url4"), film.getPlanets());
-        assertEquals(Arrays.asList("url5", "url6"), film.getStarships());
-        assertEquals(Arrays.asList("url7", "url8"), film.getVehicles());
-        assertEquals(Arrays.asList("url9", "url10"), film.getSpecies());
-        assertEquals("2014-12-10T14:23:31.880000Z", film.getCreated());
-        assertEquals("2014-12-20T19:49:45.256000Z", film.getEdited());
-        assertEquals("url11", film.getUrl());
+        assertEquals("A New Hope", film.title());
+        assertEquals(4, film.episodeId());
+        assertEquals("It is a period of civil war...", film.openingCrawl());
+        assertEquals("George Lucas", film.director());
+        assertEquals("Gary Kurtz", film.producer());
+        assertEquals("1977-05-25", film.releaseDate());
+        assertEquals(Arrays.asList("url1", "url2"), film.characters());
+        assertEquals(Arrays.asList("url3", "url4"), film.planets());
+        assertEquals(Arrays.asList("url5", "url6"), film.starships());
+        assertEquals(Arrays.asList("url7", "url8"), film.vehicles());
+        assertEquals(Arrays.asList("url9", "url10"), film.species());
+        assertEquals("2014-12-10T14:23:31.880000Z", film.created());
+        assertEquals("2014-12-20T19:49:45.256000Z", film.edited());
+        assertEquals("url11", film.url());
     }
 
     @Test
@@ -54,7 +54,7 @@ class FilmTest {
                 .openingCrawl("It is a period of civil war...")
                 .director("George Lucas")
                 .producer("Gary Kurtz")
-                .release_date("1977-05-25")
+                .releaseDate("1977-05-25")
                 .characters(Arrays.asList("url1", "url2"))
                 .planets(Arrays.asList("url3", "url4"))
                 .starships(Arrays.asList("url5", "url6"))
@@ -74,7 +74,7 @@ class FilmTest {
         assertTrue(result.contains("openingCrawl=It is a period of civil war..."));
         assertTrue(result.contains("director=George Lucas"));
         assertTrue(result.contains("producer=Gary Kurtz"));
-        assertTrue(result.contains("release_date=1977-05-25"));
+        assertTrue(result.contains("releaseDate=1977-05-25"));
         assertTrue(result.contains("characters=[url1, url2]"));
         assertTrue(result.contains("planets=[url3, url4]"));
         assertTrue(result.contains("starships=[url5, url6]"));

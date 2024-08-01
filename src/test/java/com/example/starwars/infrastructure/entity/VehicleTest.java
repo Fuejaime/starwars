@@ -83,7 +83,7 @@ public class VehicleTest {
         String result = vehicle.toString();
 
         // Assert
-        String expectedSubstring = "Vehicle(name=Speeder, model=S-200, manufacturer=Speeder Co., costInCredits=7500, length=3.4, max_atmosphering_speed=250, crew=1, passengers=0, cargoCapacity=10, consumables=1 week, vehicleClass=Speeder, created=2014-12-10T15:18:20.000Z, edited=2014-12-20T21:30:21.661Z, url=https://swapi.dev/api/vehicles/4/)";
+        String expectedSubstring = "Vehicle(name=Speeder, model=S-200, manufacturer=Speeder Co., costInCredits=7500, length=3.4, maxAtmospheringSpeed=250, crew=1, passengers=0, cargoCapacity=10, consumables=1 week, vehicleClass=Speeder, created=2014-12-10T15:18:20.000Z, edited=2014-12-20T21:30:21.661Z, url=https://swapi.dev/api/vehicles/4/)";
         assertThat(result).contains(expectedSubstring);
     }
 }

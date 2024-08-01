@@ -90,7 +90,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         String result = starship.toString();
 
         // Assert
-        String expectedSubstring = "Starship(name=X-Wing, model=T-65 X-wing, manufacturer=Incom, costInCredits=149999, length=12.5, max_atmosphering_speed=1050, crew=1, passengers=0, cargoCapacity=110, consumables=1 week, hyperdriveRating=1.0, MGLT=65, starshipClass=Starfighter, created=2014-12-10T15:18:20.000Z, edited=2014-12-20T21:30:21.661Z, url=https://swapi.dev/api/starships/12/)";
+        String expectedSubstring = "Starship(name=X-Wing, model=T-65 X-wing, manufacturer=Incom, costInCredits=149999, length=12.5, maxAtmospheringSpeed=1050, crew=1, passengers=0, cargoCapacity=110, consumables=1 week, hyperdriveRating=1.0, MGLT=65, starshipClass=Starfighter, created=2014-12-10T15:18:20.000Z, edited=2014-12-20T21:30:21.661Z, url=https://swapi.dev/api/starships/12/)";
         assertThat(result).contains(expectedSubstring);
     }
 }

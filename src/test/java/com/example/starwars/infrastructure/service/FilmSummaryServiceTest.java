@@ -35,7 +35,7 @@ public class FilmSummaryServiceTest {
         String filmUrl = "https://swapi.trileuco.com/api/films/1/";
         Film film = Film.builder()
                 .title("A New Hope")
-                .release_date("1977-05-25")
+                .releaseDate("1977-05-25")
                 .build();
 
         when(apiService.fetchObject(filmUrl, Film.class)).thenReturn(film);
@@ -72,12 +72,12 @@ public class FilmSummaryServiceTest {
 
         Film film1 = Film.builder()
                 .title("A New Hope")
-                .release_date("1977-05-25")
+                .releaseDate("1977-05-25")
                 .build();
 
         Film film2 = Film.builder()
                 .title("The Empire Strikes Back")
-                .release_date("1980-05-21")
+                .releaseDate("1980-05-21")
                 .build();
 
         when(apiService.fetchObject(filmUrl1, Film.class)).thenReturn(film1);
