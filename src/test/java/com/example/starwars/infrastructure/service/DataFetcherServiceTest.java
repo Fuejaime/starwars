@@ -1,6 +1,6 @@
 package com.example.starwars.infrastructure.service;
 
-import com.example.starwars.contract.rest.controller.PersonNotFoundException;
+import com.example.starwars.domain.Exception.PersonNotFoundException;
 import com.example.starwars.domain.Repository.ApiService;
 import com.example.starwars.infrastructure.entity.PersonInformation;
 import com.example.starwars.infrastructure.entity.PersonInformationResponse;

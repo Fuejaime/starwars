@@ -14,7 +14,6 @@ public class GetInformationUseCaseImpl implements GetInformationUseCase {
 
     @Override
     public Information getInformation(String name) {
-
         return getInformationRepository.getInformation(name);
     }
 }
