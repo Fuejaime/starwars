@@ -7,9 +7,9 @@ import com.example.starwars.infrastructure.entity.PersonInformationResponse;
 import com.example.starwars.infrastructure.entity.PlanetInformation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class DataFetcherService {
 
