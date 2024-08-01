@@ -23,6 +23,7 @@ public class DataFetcherService {
 
         while (true) {
             String url = apiUrl + page;
+            //Rest Template por WebClient
             PersonInformationResponse response = apiService.fetchObject(url, PersonInformationResponse.class);
 
             if (response == null || response.getResults().isEmpty()) {

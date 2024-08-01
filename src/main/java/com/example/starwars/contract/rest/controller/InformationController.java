@@ -1,23 +1,25 @@
 package com.example.starwars.contract.rest.controller;
 
+import com.example.starwars.api.SwapiProxyApi;
 import com.example.starwars.application.usecase.GetInformationUseCase;
-import com.example.starwars.domain.Model.Information;
+import com.example.starwars.contract.rest.mapper.InformationToGetPersonInfoMapper;
+import com.example.starwars.model.GetPersonInfo200Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
 @RestController
-@RequestMapping("/swapi-proxy/person-info")
-public class InformationController {
+@RequiredArgsConstructor
+public class InformationController implements SwapiProxyApi {
 
     private final GetInformationUseCase getInformationUseCase;
-    @GetMapping
+
+    private final InformationToGetPersonInfoMapper informationToGetPersonInfoMapper;
+
+    @Override
     @Cacheable(value = "information", key = "#name")
-    public Information getInfo(@RequestParam ("name") String name) {
-        return getInformationUseCase.getInformation(name);
+    public ResponseEntity<GetPersonInfo200Response> getPersonInfo(String name) {
+        return  ResponseEntity.ok(informationToGetPersonInfoMapper.informationToPersonInfoResponse(getInformationUseCase.getInformation(name)));
     }
 }

@@ -1,6 +1,5 @@
 package com.example.starwars.domain.Model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,7 +7,6 @@ import java.util.List;
 
 @Data
 @Builder
-@AllArgsConstructor
 public class Information {
     private String name;
     private String birth_year;

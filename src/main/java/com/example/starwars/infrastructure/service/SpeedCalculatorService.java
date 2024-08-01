@@ -36,6 +36,7 @@ public class SpeedCalculatorService {
     }
 
 
+    //quiza no es necesario
     @FunctionalInterface
     public interface SpeedExtractor<T> {
         Integer extractSpeed(T obj);

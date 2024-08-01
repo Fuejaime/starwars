@@ -41,6 +41,7 @@ public class GetInformationRepositoryImpl implements GetInformationRepository {
     }
 
     private String fetchPlanetName(String planetUrl) {
+        //plantear optional
         PlanetInformation planetInfo = dataFetcherService.fetchPlanet(planetUrl);
         return planetInfo != null ? planetInfo.getName() : "Unknown";
     }
