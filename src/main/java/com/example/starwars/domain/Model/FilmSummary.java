@@ -11,5 +11,5 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class FilmSummary {
     private String name;
-    private LocalDate release_date;
+    private LocalDate releaseDate;
 }

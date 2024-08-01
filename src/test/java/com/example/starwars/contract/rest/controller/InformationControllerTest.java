@@ -35,10 +35,10 @@ public class InformationControllerTest {
         String name = "Luke Skywalker";
         var information =  Information.builder()
                 .name("Luke Skywalker")
-                .birth_year("19BBY")
+                .birthYear("19BBY")
                 .gender("male")
-                .planet_name("Tatooine")
-                .fastest_vehicle_driven("X-34 landspeeder")
+                .planetName("Tatooine")
+                .fastestVehicleDriven("X-34 landspeeder")
                 .films(List.of())
                 .build();
 

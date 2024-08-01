@@ -9,9 +9,9 @@ import java.util.List;
 @Builder
 public class Information {
     private String name;
-    private String birth_year;
+    private String birthYear;
     private String gender;
-    private String planet_name;
-    private String fastest_vehicle_driven;
+    private String planetName;
+    private String fastestVehicleDriven;
     private List<FilmSummary> films;
 }

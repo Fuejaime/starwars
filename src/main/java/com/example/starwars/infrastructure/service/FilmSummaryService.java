@@ -27,7 +27,7 @@ public class FilmSummaryService {
     private FilmSummary toFilmSummary(Film film) {
         return FilmSummary.builder()
                 .name(film.getTitle())
-                .release_date(LocalDate.parse(film.getRelease_date()))
+                .releaseDate(LocalDate.parse(film.getRelease_date()))
                 .build();
     }
 }

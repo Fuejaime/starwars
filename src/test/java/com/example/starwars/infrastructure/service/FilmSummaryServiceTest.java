@@ -47,7 +47,7 @@ public class FilmSummaryServiceTest {
         assertThat(result).hasSize(1);
         FilmSummary filmSummary = result.get(0);
         assertThat(filmSummary.getName()).isEqualTo("A New Hope");
-        assertThat(filmSummary.getRelease_date()).isEqualTo(LocalDate.of(1977, 5, 25));
+        assertThat(filmSummary.getReleaseDate()).isEqualTo(LocalDate.of(1977, 5, 25));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class FilmSummaryServiceTest {
         // Assert
         assertThat(result).hasSize(2);
         assertThat(result).extracting(FilmSummary::getName).containsExactly("A New Hope", "The Empire Strikes Back");
-        assertThat(result).extracting(FilmSummary::getRelease_date)
+        assertThat(result).extracting(FilmSummary::getReleaseDate)
                 .containsExactly(LocalDate.of(1977, 5, 25), LocalDate.of(1980, 5, 21));
     }
 }

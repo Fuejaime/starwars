@@ -18,11 +18,8 @@ import java.util.stream.Collectors;
 @Mapper
 public interface InformationToGetPersonInfoMapper {
 
-    @Mapping(source = "name", target = "name")
-    @Mapping(source = "birth_year", target = "birthYear")
-    @Mapping(source = "planet_name", target = "planetName")
-    @Mapping(source = "fastest_vehicle_driven", target = "fastestVehicleDriven")
-    @Mapping(source = "films", target = "films")
+
+
     GetPersonInfo200Response informationToPersonInfoResponse(Information information);
 
     DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Adjust the pattern as necessary

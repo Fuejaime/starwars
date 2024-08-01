@@ -32,10 +32,10 @@ public class GetInformationRepositoryImpl implements GetInformationRepository {
 
         return Information.builder()
                 .name(personInfo.getName())
-                .birth_year(personInfo.getBirth_year())
+                .birthYear(personInfo.getBirth_year())
                 .gender(personInfo.getGender())
-                .planet_name(planetName)
-                .fastest_vehicle_driven(fastestItem)
+                .planetName(planetName)
+                .fastestVehicleDriven(fastestItem)
                 .films(films)
                 .build();
     }

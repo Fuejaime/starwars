@@ -30,10 +30,10 @@ public class GetInformationUseCaseImplTest {
         String name = "Luke Skywalker";
         Information expectedInformation = Information.builder()
                 .name("Luke Skywalker")
-                .birth_year("19BBY")
+                .birthYear("19BBY")
                 .gender("male")
-                .planet_name("Tatooine")
-                .fastest_vehicle_driven("X-34 landspeeder")
+                .planetName("Tatooine")
+                .fastestVehicleDriven("X-34 landspeeder")
                 .films(List.of())
                 .build();
         when(getInformationRepository.getInformation(name)).thenReturn(expectedInformation);
@@ -44,10 +44,10 @@ public class GetInformationUseCaseImplTest {
         //Assert
         assertNotNull(result);
         assertEquals(expectedInformation.getName(), result.getName());
-        assertEquals(expectedInformation.getBirth_year(), result.getBirth_year());
+        assertEquals(expectedInformation.getBirthYear(), result.getBirthYear());
         assertEquals(expectedInformation.getGender(), result.getGender());
-        assertEquals(expectedInformation.getPlanet_name(), result.getPlanet_name());
-        assertEquals(expectedInformation.getFastest_vehicle_driven(), result.getFastest_vehicle_driven());
+        assertEquals(expectedInformation.getPlanetName(), result.getPlanetName());
+        assertEquals(expectedInformation.getFastestVehicleDriven(), result.getFastestVehicleDriven());
         assertEquals(expectedInformation.getFilms(), result.getFilms());
 
         verify(getInformationRepository).getInformation(name);

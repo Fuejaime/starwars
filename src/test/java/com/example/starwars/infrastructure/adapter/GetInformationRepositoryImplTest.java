@@ -65,7 +65,7 @@ public class GetInformationRepositoryImplTest {
 
         FilmSummary filmSummary = FilmSummary.builder()
                 .name("A New Hope")
-                .release_date(LocalDate.parse("1977-05-25"))
+                .releaseDate(LocalDate.parse("1977-05-25"))
                 .build();
         String fastestVehicleName = "Speeder";
         String fastestStarshipName = "X-Wing";
@@ -117,10 +117,10 @@ public class GetInformationRepositoryImplTest {
 
         // Assert
         assertEquals(name, result.getName());
-        assertEquals("Tatooine", result.getPlanet_name());
-        assertEquals("X-Wing", result.getFastest_vehicle_driven());
+        assertEquals("Tatooine", result.getPlanetName());
+        assertEquals("X-Wing", result.getFastestVehicleDriven());
         assertEquals(1, result.getFilms().size());
         assertEquals("A New Hope", result.getFilms().get(0).getName());
-        assertEquals(LocalDate.parse("1977-05-25"), result.getFilms().get(0).getRelease_date());
+        assertEquals(LocalDate.parse("1977-05-25"), result.getFilms().get(0).getReleaseDate());
     }
 }
