@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/com/example/starwars/api/ApiUtil.java
+src/main/java/com/example/starwars/api/SwapiProxyApi.java
+src/main/java/com/example/starwars/model/GetPersonInfo200Response.java
+src/main/java/com/example/starwars/model/GetPersonInfo200ResponseFilmsInner.java
+src/main/java/com/example/starwars/model/GetPersonInfo404Response.java
