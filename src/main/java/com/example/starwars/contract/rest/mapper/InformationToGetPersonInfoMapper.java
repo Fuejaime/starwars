@@ -25,7 +25,6 @@ public interface InformationToGetPersonInfoMapper {
     @Mapping(source = "films", target = "films")
     GetPersonInfo200Response informationToPersonInfoResponse(Information information);
 
-    // Define a custom DateTimeFormatter if needed
     DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Adjust the pattern as necessary
 
     // Map the list of Film to List<GetPersonInfo200ResponseFilmsInner>
