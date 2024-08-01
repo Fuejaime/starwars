@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor
@@ -41,9 +42,10 @@ public class GetInformationRepositoryImpl implements GetInformationRepository {
     }
 
     private String fetchPlanetName(String planetUrl) {
-        //plantear optional
-        PlanetInformation planetInfo = dataFetcherService.fetchPlanet(planetUrl);
-        return planetInfo != null ? planetInfo.getName() : "Unknown";
+        return Optional.ofNullable(planetUrl)
+                .map(dataFetcherService::fetchPlanet)
+                .map(PlanetInformation::getName)
+                .orElse("Unknown");
     }
 
     private String findFastestItem(List<String> vehicleUrls, List<String> starshipUrls) {
