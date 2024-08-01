@@ -18,7 +18,7 @@ public class InformationController implements SwapiProxyApi {
     private final InformationToGetPersonInfoMapper informationToGetPersonInfoMapper;
 
     @Override
-    //@Cacheable(value = "information", key = "#name")
+    @Cacheable(value = "information", key = "#name")
     public ResponseEntity<GetPersonInfo200Response> getPersonInfo(String name) {
         GetPersonInfo200Response result = informationToGetPersonInfoMapper.informationToPersonInfoResponse(getInformationUseCase.getInformation(name));
         return  ResponseEntity.ok(result);

@@ -1,6 +1,6 @@
 package com.example.starwars.contract.rest.config;
 
-import com.example.starwars.contract.rest.controller.PersonNotFoundException;
+import com.example.starwars.domain.Exception.PersonNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
