@@ -77,7 +77,7 @@ class FilmTest {
         assertTrue(result.contains("openingCrawl=It is a period of civil war..."));
         assertTrue(result.contains("director=George Lucas"));
         assertTrue(result.contains("producer=Gary Kurtz"));
-        assertTrue(result.contains("releaseDate=1977-05-25"));
+        assertTrue(result.contains("release_date=1977-05-25"));
         assertTrue(result.contains("characters=[url1, url2]"));
         assertTrue(result.contains("planets=[url3, url4]"));
         assertTrue(result.contains("starships=[url5, url6]"));

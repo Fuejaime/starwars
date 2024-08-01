@@ -122,13 +122,16 @@
 					<arg>-Amapstruct.defaultComponentModel=spring</arg>
 				</compilerArgs>
 			</configuration>
-		</plugin>
+			</plugin>
 
 			<!-- Plugin de Spring Boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>starwars:latest</name> <!-- Nombre de la imagen Docker -->
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

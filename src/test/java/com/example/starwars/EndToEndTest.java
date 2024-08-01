@@ -1,13 +1,16 @@
 package com.example.starwars;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class EndToEndTest {
+@ExtendWith(MockitoExtension.class)
+class EndToEndTest {
 
     @Test
     void testGetInformation() {

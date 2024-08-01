@@ -21,20 +21,40 @@ git clone https://github.com/tu-usuario/starwars.git
 cd starwars
 ```
 
-## Paso 2: Clonar el Repositorio
+## Paso 2: Compilar sin E2E Test
 
-Construye la imagen Docker usando el Dockerfile proporcionado. Asegúrate de estar en el directorio raíz del proyecto (donde se encuentra el Dockerfile).
-
+Ejecuta la compilacion sin los test de integracion:
 ```bash
-docker build -t starwars .
+mvn clean install -DskipTests
 ```
-## Paso 3: Ejecutar el Contenedor con Docker Compose
-Ejecuta el contenedor usando Docker Compose:
+
+## Paso 3: Levantar la aplicacion y  Ejecutar 
+
+Ejecuta el contenedor:
 ```bash
-docker-compose up
+Ejecutar StarWarsApplication.java
+```
+
+Una vez Levantado el servicio, ejecutamos juevamente, esto con el fin de superar los E2E Test.
+```bash
+mvn clean install
+```
+Este comando permitirá empaquetar el archivo correctamente.
+
+## Paso 3: Ejecutar el Contenedor
+Ejecuta el contenedor:
+```bash
+mvn spring-boot:build-image
 ```
 Este comando levantará el contenedor en segundo plano y expondrá la aplicación en el puerto 8080.
-
+Una vez finalizado ejecutamos el siguiente comando:
+```bash 
+docker run -d -p 8080:8080 starwars
+````
+Detenemos la aplicación para validar la ejecución del contenedor 
+```bash
+StarWarsApplication.java 
+```
 ## Paso 4: Verificar la Ejecución
 Una vez que el contenedor esté en funcionamiento, puedes verificar que la aplicación esté corriendo accediendo a:
 ```bash
@@ -73,8 +93,14 @@ Deberías recibir una respuesta en formato JSON con la información del personaj
 Para detener y eliminar el contenedor y la red creada por Docker Compose, usa:
 
 ```bash
-docker-compose down
+docker ps
 ```
+y luego ejecuta el siguiente comando con el id del contenedor que obtuviste en el paso anterior:
+
+```bash
+docker stop <container_id>
+```
+```bash
 
 ## Notas Adicionales
 Error al Construir la Imagen: Asegúrate de que el Dockerfile esté correctamente configurado y que todas las dependencias del proyecto estén en su lugar.
