@@ -11,7 +11,7 @@ public class Starship {
     private String manufacturer;
     private String costInCredits;
     private String length;
-    private String max_atmosphering_speed; // Nota el nombre en CamelCase
+    private String max_atmosphering_speed;
     private String crew;
     private String passengers;
     private String cargoCapacity;
