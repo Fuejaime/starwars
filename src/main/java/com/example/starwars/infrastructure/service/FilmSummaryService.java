@@ -21,13 +21,13 @@ public class FilmSummaryService {
                 .map(url -> apiService.fetchObject(url, Film.class))
                 .filter(Objects::nonNull)
                 .map(this::toFilmSummary)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private FilmSummary toFilmSummary(Film film) {
         return FilmSummary.builder()
-                .name(film.title())
-                .releaseDate(LocalDate.parse(film.releaseDate()))
+                .name(film.getTitle())
+                .releaseDate(LocalDate.parse(film.getRelease_date()))
                 .build();
     }
 }

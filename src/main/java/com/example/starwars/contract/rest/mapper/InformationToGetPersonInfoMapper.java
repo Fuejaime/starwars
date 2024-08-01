@@ -26,8 +26,8 @@ public interface InformationToGetPersonInfoMapper {
     default List<GetPersonInfo200ResponseFilmsInner> mapFilms(List<Film> films) {
         return films.stream()
                 .map(film -> new GetPersonInfo200ResponseFilmsInner()
-                        .name(film.title()) // Ensure getName() matches Film property
-                        .releaseDate(parseReleaseDate(film.releaseDate()))) // Convert date string to LocalDate
+                        .name(film.getTitle()) // Ensure getName() matches Film property
+                        .releaseDate(parseReleaseDate(film.getRelease_date()))) // Convert date string to LocalDate
                 .toList();
     }
 
