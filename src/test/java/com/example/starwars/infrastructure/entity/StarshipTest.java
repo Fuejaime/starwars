@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
                 .manufacturer(manufacturer)
                 .costInCredits(costInCredits)
                 .length(length)
-                .max_atmosphering_speed(maxAtmospheringSpeed)
+                .maxAtmospheringSpeed(maxAtmospheringSpeed)
                 .crew(crew)
                 .passengers(passengers)
                 .cargoCapacity(cargoCapacity)
@@ -51,7 +51,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         assertThat(starship.getManufacturer()).isEqualTo(manufacturer);
         assertThat(starship.getCostInCredits()).isEqualTo(costInCredits);
         assertThat(starship.getLength()).isEqualTo(length);
-        assertThat(starship.getMax_atmosphering_speed()).isEqualTo(maxAtmospheringSpeed);
+        assertThat(starship.getMaxAtmospheringSpeed()).isEqualTo(maxAtmospheringSpeed);
         assertThat(starship.getCrew()).isEqualTo(crew);
         assertThat(starship.getPassengers()).isEqualTo(passengers);
         assertThat(starship.getCargoCapacity()).isEqualTo(cargoCapacity);
@@ -73,7 +73,7 @@ import static org.assertj.core.api.Assertions.assertThat;
                 .manufacturer("Incom")
                 .costInCredits("149999")
                 .length("12.5")
-                .max_atmosphering_speed("1050")
+                .maxAtmospheringSpeed("1050")
                 .crew("1")
                 .passengers("0")
                 .cargoCapacity("110")

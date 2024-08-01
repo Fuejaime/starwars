@@ -53,7 +53,7 @@ public class GetInformationRepositoryImpl implements GetInformationRepository {
                 vehicleUrls, Vehicle.class, vehicle -> parseSpeed(vehicle.getMaxAtmospheringSpeed())
         );
         Integer maxStarshipSpeed = speedCalculatorService.getMaxSpeed(
-                starshipUrls, Starship.class, starship -> parseSpeed(starship.getMax_atmosphering_speed())
+                starshipUrls, Starship.class, starship -> parseSpeed(starship.getMaxAtmospheringSpeed())
         );
 
         String fastestVehicleName = speedCalculatorService.getFastestName(
@@ -62,7 +62,7 @@ public class GetInformationRepositoryImpl implements GetInformationRepository {
         );
         String fastestStarshipName = speedCalculatorService.getFastestName(
                 starshipUrls, Starship.class, maxStarshipSpeed,
-                starship -> parseSpeed(starship.getMax_atmosphering_speed()), Starship::getName
+                starship -> parseSpeed(starship.getMaxAtmospheringSpeed()), Starship::getName
         );
 
         return maxVehicleSpeed > maxStarshipSpeed ? fastestVehicleName : fastestStarshipName;
